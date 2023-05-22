@@ -18,15 +18,15 @@ import sys
 #
 
 # how to open the library file of WAMR
-
+# Todo: windows will fail
 if sys.platform == "linux":
-    BUILDING_DIR = "product-mini/platforms/linux/build"
+    LIBS_DIR = "../libs"
     LIBRARY_NAME = "libiwasm.so"
 elif sys.platform == "win32":
     BUILDING_DIR = "product-mini/platforms/windows/build"
     LIBRARY_NAME = "iwasm.dll"
 elif sys.platform == "darwin":
-    BUILDING_DIR = "product-mini/platforms/darwin/build"
+    LIBS_DIR = "../libs"
     LIBRARY_NAME = "libiwasm.dylib"
 else:
     raise RuntimeError(f"unsupported platform `{sys.platform}`")
@@ -36,12 +36,7 @@ current_file = Path(__file__)
 if current_file.is_symlink():
     current_file = Path(os.readlink(current_file))
 current_dir = current_file.parent.resolve()
-root_dir = current_dir.parents[4].resolve()
-wamr_dir = root_dir.resolve()
-if not wamr_dir.exists():
-    raise RuntimeError(f"not found the repo of wasm-micro-runtime under {root_dir}")
-
-libpath = wamr_dir.joinpath(BUILDING_DIR).joinpath(LIBRARY_NAME).resolve()
+libpath = current_dir.joinpath(LIBS_DIR).joinpath(LIBRARY_NAME).resolve()
 if not libpath.exists():
     raise RuntimeError(f"not found precompiled wamr library at {libpath}")
 
