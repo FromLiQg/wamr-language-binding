@@ -32,11 +32,6 @@ from wamr.wamrapi.iwasm import wasm_runtime_module_free
 from wamr.wamrapi.iwasm import wasm_runtime_register_natives
 from wamr.wamrapi.iwasm import NativeSymbol
 
-# check the version of python
-# python >= 3.9
-from sys import version_info as python_version_info
-if (python_version_info < (3,9)):
-    raise Exception("The wamr.wamrapi.wamr package needs python>=3.9")
 
 class Engine:
     def __init__(self):

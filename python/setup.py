@@ -15,12 +15,6 @@ from setuptools.command.install import install
 from setuptools.command.egg_info import egg_info
 from subprocess import check_call
 
-# check the version of python
-# python >= 3.9
-from sys import version_info as python_version_info
-if (python_version_info < (3,9)):
-    raise Exception("The package wamr.wamrapi.wamr needs python>=3.9")
-
 
 def build_library():
     cur_path = pathlib.Path(__file__).parent
@@ -68,4 +62,5 @@ setup(
         'install': PreInstallCommand,
         'egg_info': PreEggInfoCommand,
     },
+    python_requires='>=3.9',
 )
