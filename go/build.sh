@@ -5,7 +5,7 @@
 
 PLATFORM=$(uname -s | tr A-Z a-z)
 CUR_DIR=$PWD
-WAMR_DIR=$PWD/../..
+WAMR_DIR=$PWD/../runtime/wasm-micro-runtime
 WAMR_GO_DIR=$PWD/wamr
 ARCH=$(uname -m)
 if [ ${ARCH} = "arm64" ]; then

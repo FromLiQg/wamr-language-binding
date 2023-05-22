@@ -5,7 +5,7 @@
 
 PLATFORM=$(uname -s | tr A-Z a-z)
 CUR_DIR=$PWD
-WAMR_DIR=$PWD/../../..
+WAMR_DIR=$PWD/../../runtime/wasm-micro-runtime
 WAMR_GO_DIR=$PWD/../wamr
 
 cp -a ${WAMR_DIR}/core/iwasm/include/*.h ${WAMR_GO_DIR}/packaged/include
