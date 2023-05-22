@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 CUR_DIR=$(cd $(dirname $0) && pwd -P)
-ROOT_DIR=${CUR_DIR}/../../..
+ROOT_DIR=${CUR_DIR}/../../runtime/wasm-micro-runtime
 
 UNAME=$(uname -s|tr A-Z a-z)
 WAMR_BUILD_PLATFORM=${WAMR_BUILD_PLATFORM:-${UNAME}}
@@ -25,7 +25,7 @@ darwin)
 esac
 cp ${LIBNAME} ${CUR_DIR}/../src/wamr/libs
 
-cd ${ROOT_DIR}/language-bindings/python/src/wamr/wamrapi
+cd ${ROOT_DIR}/../src/wamr/wamrapi
 ctypesgen \
 ${ROOT_DIR}/core/iwasm/include/wasm_export.h \
 -l ../libs/${LIBNAME} \
