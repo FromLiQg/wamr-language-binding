@@ -25,7 +25,7 @@ darwin)
 esac
 cp ${LIBNAME} ${CUR_DIR}/../src/wamr/libs
 
-cd ${ROOT_DIR}/../src/wamr/wamrapi
+cd ${CUR_DIR}/../src/wamr/wamrapi
 ctypesgen \
 ${ROOT_DIR}/core/iwasm/include/wasm_export.h \
 -l ../libs/${LIBNAME} \
